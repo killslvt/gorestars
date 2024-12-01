@@ -1,6 +1,6 @@
 function enterPortal() {
-    const audio = new Audio('stay-.mp3');
-    audio.volume = 0; //If Anyone Want A Black Background
+    const audio = new Audio('take it from the starz.mp3');
+    audio.volume = 0.1; //If Anyone Want A Black Background
 
     const typing = document.getElementById('typing');
     const cursor = document.getElementById('cursor');

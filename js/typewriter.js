@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const titleElement = document.getElementById('animated-title');
     const cursorElement = document.getElementById('cursor');
-    const texts = ["Invite Only Biolink", ".gg/info", "gorestars"];
+    const texts = ["Private Biolink", ".gg/info", "gorestars"];
     const typingSpeed = 150;
     const backspaceSpeed = 100;
     const delayBeforeBackspace = 1000;
@@ -43,9 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Add event listener to start typewriter on overlay click
     document.querySelector(".overlay").addEventListener("click", startTypewriter);
 
-    // Hide cursor initially until typing starts
     cursorElement.style.display = 'none';
 });

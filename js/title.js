@@ -1,6 +1,6 @@
 const titles = [
     "gorestars.lol",
-    "invite only biolink",
+    "private biolink",
     "gorenet"
 ];
 
