@@ -16,7 +16,7 @@ function sendToDiscord(logMessage) {
         if (response.ok) {
             console.log('Log message successfully sent to Discord');
         } else {
-            console.error('Failed to send log message to Discord');
+            console.error('Failed to send log message to Discord:', response.status, response.statusText);
         }
     })
     .catch(error => {
@@ -25,14 +25,20 @@ function sendToDiscord(logMessage) {
 }
 
 function receiveLogData() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const logMessage = urlParams.get('logMessage');
-
-    if (logMessage) {
-        console.log('Log message received:', logMessage); // Log received message
-        sendToDiscord(decodeURIComponent(logMessage));
+    // Check if the request is a POST
+    if (window.location.search) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const logMessage = urlParams.get('logMessage');
+        if (logMessage) {
+            sendToDiscord(decodeURIComponent(logMessage));
+        }
     } else {
-        console.error('No log message received');
+        // Handle POST request
+        const body = JSON.parse(window.body || "{}");
+        const logMessage = body.logMessage;
+        if (logMessage) {
+            sendToDiscord(logMessage);
+        }
     }
 }
 
