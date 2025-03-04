@@ -29,7 +29,10 @@ function receiveLogData() {
     const logMessage = urlParams.get('logMessage');
 
     if (logMessage) {
+        console.log('Log message received:', logMessage); // Log received message
         sendToDiscord(decodeURIComponent(logMessage));
+    } else {
+        console.error('No log message received');
     }
 }
 
